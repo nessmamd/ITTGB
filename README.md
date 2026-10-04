@@ -7,7 +7,15 @@ so there will be v1 and v2. v1 is the bootstrap level with assembly and then v2 
 
 for the parser, same thing with v1 and v2. the expr, term, primary, and unary will also be supported.
 
-
+main.c     reads the file, picks a mode
+  ↓
+lexer.c    characters → tokens
+  ↓
+parser.c   tokens → AST
+  ↓
+codegen.c  AST → ARM64 assembly
+  ↓
+clang      assembly → executable (Apple's assembler and linker do this part)
 ## Build and run
 
 From this directory, run:
